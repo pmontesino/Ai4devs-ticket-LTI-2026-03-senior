@@ -2,6 +2,10 @@
 
 This project is a full-stack application with a React frontend and an Express backend using Prisma as an ORM. The frontend is initiated with Create React App, and the backend is written in TypeScript.
 
+## Copilot Interaction Log
+
+The full interaction history with Copilot for building this MVP is documented in `PROMPTS.MD`.
+
 ## Directory and File Explanation
 
 - `backend/`: Contains the server-side code written in Node.js.
@@ -68,6 +72,14 @@ npm start
 
 The backend server will be running at http://localhost:3010, and the frontend will be available at http://localhost:3000.
 
+## MVP Flow (Add Candidate)
+
+1. Open recruiter dashboard on `http://localhost:3000`.
+2. Fill required fields: first name, last name, email, phone (Spain format).
+3. Optionally attach CV file in PDF or DOCX (max 10 MB).
+4. Submit the form and confirm success message.
+5. For duplicated email, invalid phone/email, or invalid file, the UI shows validation feedback.
+
 ## Docker y PostgreSQL
 
 This project uses Docker to run a PostgreSQL database. Here's how to get it up and running:
@@ -97,6 +109,10 @@ docker-compose down
 # LTI - Sistema de Seguimiento de Talento  | ES
 
 Este proyecto es una aplicación full-stack con un frontend en React y un backend en Express usando Prisma como ORM. El frontend se inicia con Create React App y el backend está escrito en TypeScript.
+
+## Registro de Interaccion con Copilot
+
+Toda la interaccion con Copilot para construir este MVP esta documentada en `PROMPTS.MD`.
 
 ## Explicación de Directorios y Archivos
 
@@ -163,6 +179,14 @@ npm start
 ```
 
 El servidor backend estará corriendo en http://localhost:3010 y el frontend estará disponible en http://localhost:3000.
+
+## Flujo MVP (Anadir Candidato)
+
+1. Abre el dashboard del reclutador en `http://localhost:3000`.
+2. Completa campos obligatorios: nombre, apellido, correo y telefono (formato Espana).
+3. Adjunta CV opcional en PDF o DOCX (max 10 MB).
+4. Envia el formulario y verifica el mensaje de confirmacion.
+5. Ante correo duplicado, telefono/correo invalido o archivo no valido, la interfaz muestra errores de validacion.
 
 ## Docker y PostgreSQL
 
