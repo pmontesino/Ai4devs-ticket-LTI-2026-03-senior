@@ -170,3 +170,14 @@ Se corrige el componente frontend CandidateForm para revalidar en cada cambio de
 
 ### 2026-04-05 - Asistente
 Se agrega prueba de regresion en frontend/src/tests/CandidateForm.test.tsx para validar que, tras corregir telefono invalido, el flujo de guardado vuelve a estar habilitado. Frontend tests OK.
+
+### 2026-04-05 - Usuario
+Solicita realizar el merge contra la rama solved-PJM.
+
+### 2026-04-05 - Asistente
+Se crea commit en la rama 001-add-candidate-ats con los cambios implementados y se realiza merge no fast-forward en solved-PJM sin conflictos.
+
+### 2026-04-05 - Asistente
+Resultado del merge:
+- Merge commit en solved-PJM: 9f19e20
+- Commit fuente integrado: a81c104
