@@ -18,3 +18,57 @@ model User {
   email String  @unique
   name  String?
 }
+
+enum CandidateStatus {
+  ACTIVE
+  ANONYMIZED
+}
+
+enum CandidateAuditEventType {
+  CREATE_SUCCESS
+  CREATE_VALIDATION_ERROR
+  CREATE_DUPLICATE_REJECTED
+  CV_UPLOAD_SUCCESS
+  CV_UPLOAD_REJECTED
+  CV_ACCESS_DENIED
+  ANONYMIZATION_EXECUTED
+}
+
+model Candidate {
+  id                 String               @id @default(uuid())
+  firstName          String
+  lastName           String
+  email              String               @unique
+  encryptedPhone     String
+  encryptedAddress   String?
+  encryptedEducation String?
+  encryptedWorkExp   String?
+  status             CandidateStatus      @default(ACTIVE)
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  anonymizedAt       DateTime?
+  cvDocuments        CandidateCvDocument[]
+  auditEvents        CandidateAuditEvent[]
+}
+
+model CandidateCvDocument {
+  id             String    @id @default(uuid())
+  candidateId    String
+  fileName       String
+  mimeType       String
+  fileSizeBytes  Int
+  storagePath    String
+  uploadedByUser String    @default("system")
+  uploadedAt     DateTime  @default(now())
+  candidate      Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+}
+
+model CandidateAuditEvent {
+  id         String                  @id @default(uuid())
+  candidateId String?
+  eventType  CandidateAuditEventType
+  actorUser  String                  @default("system")
+  timestamp  DateTime                @default(now())
+  metadata   String?
+  candidate  Candidate?              @relation(fields: [candidateId], references: [id], onDelete: SetNull)
+}
